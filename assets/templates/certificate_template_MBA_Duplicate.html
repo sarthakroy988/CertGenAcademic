@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Certificate</title>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script> -->
+    <!-- script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+    <script src="assets/js/mathjax/tex-mml-chtml.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Ashirwad';
+            src: url('assets/fonts/Noto-Sans-Devanagari-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Myriad';
+            src: url('assets/fonts/MYRIADPRO-REGULAR.OTF') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        *{ margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root{
+            --scale-factor: 0.99; /*Scale factor for fonts in different templates*/
+        }
+        
+        body{ 
+            width: 100vw; height: 100vh; 
+            /* padding: 1.3cm 1.6cm 1.5cm 1.2cm;  */
+            /* padding-top: 4cm; */
+            padding-left: 2cm;
+            padding-right: 2cm;
+            /* padding-bottom: 1.5cm; */
+        }
+        .content{
+            position: relative;
+            top: -19pt;
+        }
+        .certificate{
+            /*width: 100%; height: 100%;*/
+        }
+
+        .rollnoDiv{
+            position: relative;
+            top: -2cm;
+            right: -14.5cm;
+            width: fit-content;
+            font-size: 3px;
+            text-align: center;
+        }
+
+        
+        p{
+        
+        }
+
+        #hindiDiv, #hindiDiv p{
+            font-family: 'Ashirwad';
+            line-height: 2.1;
+        }
+        #englishDiv, #englishDiv p{
+            font-family: 'Myriad';
+            line-height: 2.1;
+        }
+
+        .imgTd{
+            width:153.1pt; 
+            padding-right:5.4pt; 
+            padding-left:5.4pt; 
+            vertical-align:middle;
+        }
+
+        .signImg{
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            body {
+                margin: 0;
+                border: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <div style="display: flex; flex-direction: column; align-items: center; position: relative; width: min-content;">
+            <div class="rollnoDiv">
+                <p>INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI</p>
+                <p style="font-size: 15px; font-weight: bold;">${rollno}</p>
+                <p>INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI</p>
+            </div>
+            <div class="rollnoDiv" style="background-color: black; color: #fff;">
+                <p style="font-size: 12px; font-weight: bold; padding: 3px 14px 3px 14px;">अनुलिपि</p>
+                <p style="font-size: 12px; font-weight: bold; padding: 3px 14px 3px 14px;">DUPLICATE</p>
+            </div>
+        </div>
+        <div class="content" style="top:-37pt;">
+            <div id="hindiDiv">
+                <p style="padding-top:5pt;text-align:center; font-size: calc(24pt * 0.99)">
+                    <strong>भारतीय प्रौद्योगिकी संस्थान गुवाहाटी</strong>
+                </p>
+                <p style="text-align:center; font-size: calc(12pt * var(--scale-factor))">
+                    विद्या परिषद की अनुशंसा पर
+                </p>
+                <p style="text-align:center; font-size: calc(12pt * var(--scale-factor))">
+                    <strong style="font-size: calc(18pt * var(--scale-factor))">व्यवसाय प्रशासन निष्णात</strong> की उपाधि
+                </p>
+                <p style="text-align:center; font-size: calc(18pt * var(--scale-factor))">
+                    <strong>${hindiName}</strong>
+                </p>
+                <p style="text-align:center; font-size: calc(12pt * var(--scale-factor))">
+                    को इस उपाधि के प्रदान हेतु विनियम विहित अपेक्षाएँ ${compDateHindi} में<br>सफलतापूर्वक पूर्ण करने पर प्रदान करता है।
+                </p>
+                <p style="text-align:center; font-size: calc(12pt * var(--scale-factor))">
+                    भारतीय गणराज्य के अंतर्गत गुवाहाटी में आज ${awardDateHindi} को संस्थान की<br>यह मुद्रा अंकित उपाधि दी गई।
+                </p>
+            </div>
+
+            <div id="englishDiv">
+                <p style="text-align:center; font-size: calc(24pt * 0.99)">
+                    <strong>INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI</strong>
+                </p>
+                <p style="text-align:center; font-size: calc(12pt * var(--scale-factor))">
+                    upon the recommendation of the Senate hereby confers the degree of
+                </p>
+                <p style="text-align:center; font-size: calc(18pt * var(--scale-factor))">
+                    <strong>Master of Business Administration</strong>
+                </p>
+                <p style="text-align:center; font-size: calc(12pt * var(--scale-factor))">
+                    on
+                </p>
+                <p style="text-align:center; font-size: calc(18pt * var(--scale-factor))">
+                    <strong>${name}</strong>
+                </p>
+                <p style="text-align:center; font-size: calc(12pt * var(--scale-factor))">
+                    who has successfully completed in ${compDate}, the requirements prescribed<br>under the regulations for the award of this degree.
+                </p>
+                <p style="text-align:center; font-size: calc(12pt * var(--scale-factor))">
+                    Given this day, under the seal of the Institute at Guwahati in the Republic of India,<br>
+                    the ${awardDate}.
+                </p>
+            </div>
+            
+            <table style="width: 491.6pt; border-collapse: collapse; position: relative; left: 50%; transform: translate(-50%); font-size: 0.9rem;">
+                <tr style="height: 16.7pt">
+                    <td class="imgTd">
+                        <p style="text-align: center;">Sd/-</p>
+                    </td>
+                    <td class="imgTd">
+                        <p style="text-align: center;">Sd/-</p>
+                    </td>
+                    <td class="imgTd">
+                        <p style="text-align: center;">Sd/-</p>
+                    </td>
+                </tr>
+                <tr style="height: 60pt">
+                    <td style="width: 153.05pt; padding-right: 5.4pt; padding-left: 5.4pt; vertical-align: top">
+                        <p style="text-align: center; font-family: 'Ashirwad';">
+                            निदेशक एवं
+                        </p>
+                        <p style="text-align: center; font-family: 'Ashirwad';">
+                            अध्यक्ष, विद्या परिषद
+                        </p>
+                        <p style="text-align: center; font-family: 'Myriad';">
+                            Director and
+                        </p>
+                        <p style="text-align: center; font-family: 'Myriad';">
+                            Chairman, Senate
+                        </p>
+                    </td>
+                    <td style="width: 153.05pt; padding-right: 5.4pt; padding-left: 5.4pt; vertical-align: top">
+                        <p style="text-align: center; font-family: 'Ashirwad';">
+                            कुलसचिव
+                        </p>
+                        <p style="text-align: center; font-family: 'Myriad';">
+                            Registrar
+                        </p>
+                    </td>
+                    <td style="width: 153.1pt; padding-right: 5.4pt; padding-left: 5.4pt; vertical-align: top">
+                        <p style="text-align: center; font-family: 'Ashirwad';">
+                            अध्यक्ष,
+                        </p>
+                        <p style="text-align: center; font-family: 'Ashirwad';">
+                            शासी मंडल
+                        </p>
+                        <p style="text-align: center; font-family: 'Myriad';">
+                            Chairman,
+                        </p>
+                        <p style="text-align: center; font-family: 'Myriad';">
+                            Board of Governors
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="width: 153.05pt; padding-right: 5.4pt; padding-left: 5.4pt; vertical-align: bottom">
+                        <p style="text-align: center; font-family: 'Ashirwad';">
+                            कुलसचिव
+                        </p>
+                        <p style="text-align: center; font-family: 'Myriad';">
+                            Registrar
+                        </p>
+                    </td>
+                    <td style="text-align: center; padding-top: 28px;"><strong>Date of Issue:</strong> ${issueDate}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="footer">
+        </div>
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      MathJax.typesetPromise().then(() => {
+        document.querySelector('body').setAttribute('data-mathjax-rendered', 'true');
+        });
+    });
+    </script>
+</html>
